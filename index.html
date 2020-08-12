@@ -82,7 +82,7 @@
       </header><div class="row">
   <div class="contents col-md-9">
 
-<p><img src="https://travis-ci.org/lifecycle-project/ds-upload.svg?branch=master" alt="Build status"></p>
+<p>[<img src="https://travis-ci.org/lifecycle-project/ds-upload.svg?branch=master" alt="Build status">] <a href="https://www.gnu.org/licenses/gpl-3.0"><img src="https://img.shields.io/badge/License-GPLv3-blue.svg" alt="License: GPL v3"></a></p>
 <div id="datashield-upload-tools" class="section level1">
 <div class="page-header"><h1 class="hasAnchor">
 <a href="#datashield-upload-tools" class="anchor"></a>DataSHIELD upload tools</h1></div>
@@ -96,60 +96,12 @@
 <div id="troubleshooting" class="section level2">
 <h2 class="hasAnchor">
 <a href="#troubleshooting" class="anchor"></a>Troubleshooting</h2>
-<p>Please check the <a href="">troubleshooting guide</a>.</p>
+<p>Please check the <a href="https://github.com/lifecycle-project/ds-upload/blob/master/TROUBLESHOOTING.md">troubleshooting guide</a>.</p>
 </div>
 <div id="adding-new-variables" class="section level2">
 <h2 class="hasAnchor">
 <a href="#adding-new-variables" class="anchor"></a>Adding new variables</h2>
 <p>Please check: <a href="https://github.com/lifecycle-project/ds-dictionaries/blob/master/README.md">adding new variables</a></p>
-</div>
-<div id="releases" class="section level2">
-<h2 class="hasAnchor">
-<a href="#releases" class="anchor"></a>Releases</h2>
-<p>Releasing the artifact can be done by curling to the following address:</p>
-<div id="for-source-packages" class="section level3">
-<h3 class="hasAnchor">
-<a href="#for-source-packages" class="anchor"></a>For source packages</h3>
-<div class="sourceCode" id="cb1"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb1-1" data-line-number="1"><span class="ex">curl</span> -v --user <span class="st">'user:password'</span> --upload-file dsUpload_3.0.0.tar.gz https://registry.molgenis.org/repository/r-hosted/src/contrib/dsUpload_3.0.0.tar.gz </a></code></pre></div>
-<p><em>URL clarification: <a href="https://registry.molgenis.org/repository/r-hosted/src/contrib/*package_version" class="uri">https://registry.molgenis.org/repository/r-hosted/src/contrib/*package_version</a></em>.tar.gz*</p>
-</div>
-<div id="for-binary-packages" class="section level3">
-<h3 class="hasAnchor">
-<a href="#for-binary-packages" class="anchor"></a>For binary packages</h3>
-<p>First upload the source package to <a href="https://win-builder.r-project.org/" class="uri">https://win-builder.r-project.org/</a> Then download the zip-file build bij win-builder. Then upload it into the registry by executing this command:</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb2-1" data-line-number="1"><span class="ex">curl</span> -v --user <span class="st">'user:password'</span> --upload-file dsUpload_3.0.0.zip https://registry.molgenis.org/repository/r-hosted/bin/windows/contrib/3.6/dsUpload_3.0.0.zip</a></code></pre></div>
-<p><em>URL clarification: <a href="https://registry.molgenis.org/repository/r-hosted/bin/windows/contrib/*r-version*/*package_version" class="uri">https://registry.molgenis.org/repository/r-hosted/bin/windows/contrib/*r-version*/*package_version</a></em>.zip*</p>
-<p>Also create a git-tag and push this to the remote, based upon the <code>dsUpload</code> DESCRIPTION-file.</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb3-1" data-line-number="1"><span class="fu">git</span> tag x.x.x</a>
-<a class="sourceLine" id="cb3-2" data-line-number="2"><span class="fu">git</span> push origin tags/x.x.x</a></code></pre></div>
-<p>This is used to download the data dictionaries, so do not forget to do this!</p>
-</div>
-</div>
-<div id="setup-travis-ci" class="section level2">
-<h2 class="hasAnchor">
-<a href="#setup-travis-ci" class="anchor"></a>Setup Travis-CI</h2>
-<p>You need some prerequisites for implementing the travis build flow.</p>
-<div class="sourceCode" id="cb4"><pre class="r"><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span>(<span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="st">"remotes"</span>, <span class="st">"usethis"</span>))
-<span class="fu"><a href="https://rdrr.io/r/base/library.html">library</a></span>(<span class="no">remotes</span>)
-<span class="fu"><a href="https://remotes.r-lib.org/reference/install_github.html">install_github</a></span>(<span class="st">"ropenscilabs/travis"</span>)</pre></div>
-<p>Then you are going to implement the travis workflow</p>
-<div class="sourceCode" id="cb5"><pre class="r"><span class="fu"><a href="https://rdrr.io/r/base/library.html">library</a></span>(<span class="no">usethis</span>)
-<span class="fu"><a href="https://rdrr.io/r/base/library.html">library</a></span>(<span class="no">travis</span>)
-
-<span class="co"># generate a travis file</span>
-<span class="kw pkg">usethis</span><span class="kw ns">::</span><span class="fu">use_travis</span>()</pre></div>
-<p>To use travis to generate your site as well please use <code>pkgdown</code></p>
-<div class="sourceCode" id="cb6"><pre class="r"><span class="kw pkg">usethis</span><span class="kw ns">::</span><span class="fu">use_pkgdown</span>()
-<span class="kw pkg">usethis</span><span class="kw ns">::</span><span class="fu">use_pkgdown_travis</span>()</pre></div>
-<p>Use travis to deploy to github by first perparing the R environment: <code>usethis::edit_r_environ()</code></p>
-<p>Add these key-value pairs to R environment</p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb7-1" data-line-number="1"><span class="co"># You can generate the key using this function: usethis::browse_github_token()</span></a>
-<a class="sourceLine" id="cb7-2" data-line-number="2"><span class="va">GITHUB_PAT=</span>xxxx</a>
-<a class="sourceLine" id="cb7-3" data-line-number="3"><span class="va">R_TRAVIS=</span>.org</a>
-<a class="sourceLine" id="cb7-4" data-line-number="4"><span class="co"># You can find the key using this function: `travis::browse_travis_token(endpoint = '.org')`</span></a>
-<a class="sourceLine" id="cb7-5" data-line-number="5"><span class="va">R_TRAVIS_ORG=</span>xxxx</a></code></pre></div>
-<p>Run the travis deploy command to complete the setup.</p>
-<div class="sourceCode" id="cb8"><pre class="r"><span class="kw pkg">travis</span><span class="kw ns">::</span><span class="fu">use_travis_deploy</span>()</pre></div>
 </div>
 </div>
 
