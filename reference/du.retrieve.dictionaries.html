@@ -72,7 +72,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">dsUpload</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">3.0.0</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">3.1.0</span>
       </span>
     </div>
 
@@ -95,7 +95,10 @@
   </a>
   <ul class="dropdown-menu" role="menu">
     <li>
-      <a href="../articles/DSUpload.html">DSUpload</a>
+      <a href="../articles/DSUpload.html">dsUpload</a>
+    </li>
+    <li>
+      <a href="../articles/betaDictionaries.html">Beta dictionaries</a>
     </li>
   </ul>
 </li>
@@ -121,7 +124,7 @@
   <div class="col-md-9 contents">
     <div class="page-header">
     <h1>Retrieve the right file from download directory</h1>
-    <small class="dont-index">Source: <a href='https://github.com/lifecycle-project/ds-upload/blob/master/R/reshape_helpers.R'><code>R/reshape_helpers.R</code></a></small>
+    <small class="dont-index">Source: <a href='https://github.com/lifecycle-project/ds-upload/blob/master/R/dictionaries.R'><code>R/dictionaries.R</code></a></small>
     <div class="hidden name"><code>du.retrieve.dictionaries.Rd</code></div>
     </div>
 
@@ -129,22 +132,18 @@
     <p>Retrieve the right file from download directory</p>
     </div>
 
-    <pre class="usage"><span class='fu'>du.retrieve.dictionaries</span>(<span class='no'>dict_table</span>, <span class='no'>dict_kind</span>, <span class='kw'>retrieve_all_by_kind</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>)</pre>
+    <pre class="usage"><span class='fu'>du.retrieve.dictionaries</span><span class='op'>(</span><span class='va'>dict_table</span>, <span class='va'>dict_kind</span><span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
       <th>dict_table</th>
-      <td><p>which table do you want to return</p></td>
+      <td><p>a specific table that you want to check</p></td>
     </tr>
     <tr>
       <th>dict_kind</th>
       <td><p>can be 'core' or 'outcome'</p></td>
-    </tr>
-    <tr>
-      <th>retrieve_all_by_kind</th>
-      <td><p>do you want to retrieve all dictionaries in a certain version</p></td>
     </tr>
     </table>
 
@@ -167,7 +166,7 @@
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.5.1.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.1.</p>
 </div>
 
       </footer>

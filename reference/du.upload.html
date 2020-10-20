@@ -72,7 +72,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">dsUpload</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">3.0.0</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">3.1.0</span>
       </span>
     </div>
 
@@ -95,7 +95,10 @@
   </a>
   <ul class="dropdown-menu" role="menu">
     <li>
-      <a href="../articles/DSUpload.html">DSUpload</a>
+      <a href="../articles/DSUpload.html">dsUpload</a>
+    </li>
+    <li>
+      <a href="../articles/betaDictionaries.html">Beta dictionaries</a>
     </li>
   </ul>
 </li>
@@ -129,26 +132,25 @@
     <p>Upload dictionaries and data into the DataSHIELD backend.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>du.upload</span>(
-  <span class='kw'>dict_version</span> <span class='kw'>=</span> <span class='st'>"2_1"</span>,
-  <span class='kw'>data_version</span> <span class='kw'>=</span> <span class='st'>"1_1"</span>,
-  <span class='kw'>dict_kind</span> <span class='kw'>=</span> <span class='st'>"core"</span>,
-  <span class='no'>cohort_id</span>,
-  <span class='kw'>database_name</span> <span class='kw'>=</span> <span class='st'>"opal_data"</span>,
-  <span class='kw'>data_input_format</span> <span class='kw'>=</span> <span class='st'>"CSV"</span>,
-  <span class='no'>data_input_path</span>,
-  <span class='kw'>data_output_path</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/getwd.html'>getwd</a></span>(),
-  <span class='kw'>action</span> <span class='kw'>=</span> <span class='st'>"all"</span>,
-  <span class='kw'>upload_to_opal</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>,
-  <span class='kw'>non_interactive</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>
-)</pre>
+    <pre class="usage"><span class='fu'>du.upload</span><span class='op'>(</span>
+  dict_version <span class='op'>=</span> <span class='st'>"2_1"</span>,
+  data_version <span class='op'>=</span> <span class='st'>"1_0"</span>,
+  dict_kind <span class='op'>=</span> <span class='fu'>du.enum.dict.kind</span><span class='op'>(</span><span class='op'>)</span><span class='op'>$</span><span class='va'>CORE</span>,
+  <span class='va'>cohort_id</span>,
+  database_name <span class='op'>=</span> <span class='st'>"opal_data"</span>,
+  data_input_format <span class='op'>=</span> <span class='fu'><a href='du.enum.input.format.html'>du.enum.input.format</a></span><span class='op'>(</span><span class='op'>)</span><span class='op'>$</span><span class='va'>CSV</span>,
+  <span class='va'>data_input_path</span>,
+  action <span class='op'>=</span> <span class='fu'>du.enum.action</span><span class='op'>(</span><span class='op'>)</span><span class='op'>$</span><span class='va'>ALL</span>,
+  upload <span class='op'>=</span> <span class='cn'>TRUE</span>,
+  non_interactive <span class='op'>=</span> <span class='cn'>FALSE</span>
+<span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
       <th>dict_version</th>
-      <td><p>version of the data dictionnary to be used</p></td>
+      <td><p>version of the data dictionary to be used</p></td>
     </tr>
     <tr>
       <th>data_version</th>
@@ -164,7 +166,7 @@
     </tr>
     <tr>
       <th>database_name</th>
-      <td><p>is the name of the data backend of DataSHIELD backend: 'Opal'</p></td>
+      <td><p>is the name of the data backend of DataSHIELD, default = opal_data</p></td>
     </tr>
     <tr>
       <th>data_input_format</th>
@@ -172,19 +174,15 @@
     </tr>
     <tr>
       <th>data_input_path</th>
-      <td><p>Path to the to-be-reshaped database</p></td>
-    </tr>
-    <tr>
-      <th>data_output_path</th>
-      <td><p>Path where the reshaped databases will be written</p></td>
+      <td><p>path to the to-be-reshaped data</p></td>
     </tr>
     <tr>
       <th>action</th>
       <td><p>action to be performed, can be 'reshape', 'populate' or 'all'</p></td>
     </tr>
     <tr>
-      <th>upload_to_opal</th>
-      <td><p>Wether to directly upload the reshaped database to the logged in opal server</p></td>
+      <th>upload</th>
+      <td><p>directly upload the reshaped database to the logged in DataSHIELD server</p></td>
     </tr>
     <tr>
       <th>non_interactive</th>
@@ -194,15 +192,17 @@
 
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='kw'>if</span> (<span class='fl'>FALSE</span>) {
-<span class='fu'>du.upload</span>(
-  <span class='kw'>data_input_format</span> <span class='kw'>=</span> <span class='st'>"CSV"</span>,
-  <span class='kw'>data_input_path</span> <span class='kw'>=</span> <span class='st'>"~/path-to-file/all_measurements_v1_2.csv"</span>,
-  <span class='kw'>data_version</span> <span class='kw'>=</span> <span class='st'>"1_0"</span>,
-  <span class='kw'>dict_version</span> <span class='kw'>=</span> <span class='st'>"2_1"</span>,
-  <span class='kw'>cohort_id</span> <span class='kw'>=</span> <span class='st'>"gecko"</span>
-)
-}</div></pre>
+    <pre class="examples"><div class='input'><span class='kw'>if</span> <span class='op'>(</span><span class='cn'>FALSE</span><span class='op'>)</span> <span class='op'>{</span>
+<span class='fu'>du.upload</span><span class='op'>(</span>
+  data_input_format <span class='op'>=</span> <span class='st'>"CSV"</span>,
+  data_input_path <span class='op'>=</span> <span class='st'>"~/path-to-file/all_measurements_v1_2.csv"</span>,
+  data_version <span class='op'>=</span> <span class='st'>"1_0"</span>,
+  dict_version <span class='op'>=</span> <span class='st'>"2_1"</span>,
+  cohort_id <span class='op'>=</span> <span class='st'>"gecko"</span>
+<span class='op'>)</span>
+<span class='op'>}</span>
+
+</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">
@@ -218,7 +218,7 @@
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.5.1.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.1.</p>
 </div>
 
       </footer>

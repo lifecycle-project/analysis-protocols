@@ -72,7 +72,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">dsUpload</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">3.0.0</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">3.1.0</span>
       </span>
     </div>
 
@@ -95,7 +95,10 @@
   </a>
   <ul class="dropdown-menu" role="menu">
     <li>
-      <a href="../articles/DSUpload.html">DSUpload</a>
+      <a href="../articles/DSUpload.html">dsUpload</a>
+    </li>
+    <li>
+      <a href="../articles/betaDictionaries.html">Beta dictionaries</a>
     </li>
   </ul>
 </li>
@@ -129,22 +132,21 @@
     <p>Reshape Script for R: LifeCycle Harmonized Data</p>
     </div>
 
-    <pre class="usage"><span class='fu'>du.reshape</span>(
-  <span class='kw'>upload_to_opal</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>,
-  <span class='no'>data_version</span>,
-  <span class='no'>input_format</span>,
-  <span class='no'>dict_version</span>,
-  <span class='no'>dict_kind</span>,
-  <span class='no'>input_path</span>,
-  <span class='no'>output_path</span>,
-  <span class='no'>non_interactive</span>
-)</pre>
+    <pre class="usage"><span class='fu'>du.reshape</span><span class='op'>(</span>
+  upload <span class='op'>=</span> <span class='cn'>TRUE</span>,
+  <span class='va'>data_version</span>,
+  <span class='va'>input_format</span>,
+  <span class='va'>dict_version</span>,
+  <span class='va'>dict_kind</span>,
+  <span class='va'>input_path</span>,
+  <span class='va'>non_interactive</span>
+<span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
-      <th>upload_to_opal</th>
+      <th>upload</th>
       <td><p>do you want automatically upload the files to your opal (default = true)</p></td>
     </tr>
     <tr>
@@ -165,11 +167,7 @@
     </tr>
     <tr>
       <th>input_path</th>
-      <td><p>path for importfile</p></td>
-    </tr>
-    <tr>
-      <th>output_path</th>
-      <td><p>path to output directory (default = your working directory)</p></td>
+      <td><p>path for import file</p></td>
     </tr>
     <tr>
       <th>non_interactive</th>
@@ -193,7 +191,7 @@
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.5.1.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.1.</p>
 </div>
 
       </footer>

@@ -6,9 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Part of child characteristics
-Child birth outcomes
-Involves variables 79-97 — du.quality.local.core.child.birth.out • dsUpload</title>
+<title>Upload beta dictionaries to your Opal instance — du.upload.beta • dsUpload</title>
 
 
 <!-- jquery -->
@@ -41,12 +39,8 @@ Involves variables 79-97 — du.quality.local.core.child.birth.out • dsUpload<
 
 
 
-<meta property="og:title" content="Part of child characteristics
-Child birth outcomes
-Involves variables 79-97 — du.quality.local.core.child.birth.out" />
-<meta property="og:description" content="Part of child characteristics
-Child birth outcomes
-Involves variables 79-97" />
+<meta property="og:title" content="Upload beta dictionaries to your Opal instance — du.upload.beta" />
+<meta property="og:description" content="Upload beta dictionaries to your Opal instance" />
 
 
 
@@ -129,27 +123,50 @@ Involves variables 79-97" />
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Part of child characteristics
-Child birth outcomes
-Involves variables 79-97</h1>
-    <small class="dont-index">Source: <a href='https://github.com/lifecycle-project/ds-upload/blob/master/R/qc_local_core.R'><code>R/qc_local_core.R</code></a></small>
-    <div class="hidden name"><code>du.quality.local.core.child.birth.out.Rd</code></div>
+    <h1>Upload beta dictionaries to your Opal instance</h1>
+    <small class="dont-index">Source: <a href='https://github.com/lifecycle-project/ds-upload/blob/master/R/upload_beta.R'><code>R/upload_beta.R</code></a></small>
+    <div class="hidden name"><code>du.upload.beta.Rd</code></div>
     </div>
 
     <div class="ref-description">
-    <p>Part of child characteristics
-Child birth outcomes
-Involves variables 79-97</p>
+    <p>Upload beta dictionaries to your Opal instance</p>
     </div>
 
-    <pre class="usage"><span class='fu'>du.quality.local.core.child.birth.out</span><span class='op'>(</span><span class='va'>lc_data</span><span class='op'>)</span></pre>
+    <pre class="usage"><span class='fu'>du.upload.beta</span><span class='op'>(</span>
+  upload <span class='op'>=</span> <span class='cn'>TRUE</span>,
+  dict_name <span class='op'>=</span> <span class='st'>""</span>,
+  action <span class='op'>=</span> <span class='fu'>du.enum.action</span><span class='op'>(</span><span class='op'>)</span><span class='op'>$</span><span class='va'>ALL</span>,
+  data_input_path <span class='op'>=</span> <span class='st'>""</span>,
+  data_input_format <span class='op'>=</span> <span class='fu'><a href='du.enum.input.format.html'>du.enum.input.format</a></span><span class='op'>(</span><span class='op'>)</span><span class='op'>$</span><span class='va'>CSV</span>,
+  database_name <span class='op'>=</span> <span class='st'>"opal_data"</span>
+<span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
-      <th>lc_data</th>
-      <td><p>core variables from LifeCycle</p></td>
+      <th>upload</th>
+      <td><p>do we need to upload the DataSHIELD backend</p></td>
+    </tr>
+    <tr>
+      <th>dict_name</th>
+      <td><p>name of the dictionary located on Github usually something like this: diabetes/test_vars_01</p></td>
+    </tr>
+    <tr>
+      <th>action</th>
+      <td><p>action to be performed, can be 'reshape', 'populate' or 'all'</p></td>
+    </tr>
+    <tr>
+      <th>data_input_path</th>
+      <td><p>path to the to-be-reshaped data</p></td>
+    </tr>
+    <tr>
+      <th>data_input_format</th>
+      <td><p>format of the database to be reshaped. Can be 'CSV', 'STATA', or 'SAS'</p></td>
+    </tr>
+    <tr>
+      <th>database_name</th>
+      <td><p>is the name of the data backend of DataSHIELD, default = opal_data</p></td>
     </tr>
     </table>
 

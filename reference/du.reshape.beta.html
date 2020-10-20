@@ -6,9 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Part of child characteristics
-Child birth outcomes
-Involves variables 79-97 — du.quality.local.core.child.birth.out • dsUpload</title>
+<title>Reshape Script for R: LifeCycle Harmonized Data — du.reshape.beta • dsUpload</title>
 
 
 <!-- jquery -->
@@ -41,12 +39,8 @@ Involves variables 79-97 — du.quality.local.core.child.birth.out • dsUpload<
 
 
 
-<meta property="og:title" content="Part of child characteristics
-Child birth outcomes
-Involves variables 79-97 — du.quality.local.core.child.birth.out" />
-<meta property="og:description" content="Part of child characteristics
-Child birth outcomes
-Involves variables 79-97" />
+<meta property="og:title" content="Reshape Script for R: LifeCycle Harmonized Data — du.reshape.beta" />
+<meta property="og:description" content="Reshape Script for R: LifeCycle Harmonized Data" />
 
 
 
@@ -129,27 +123,50 @@ Involves variables 79-97" />
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Part of child characteristics
-Child birth outcomes
-Involves variables 79-97</h1>
-    <small class="dont-index">Source: <a href='https://github.com/lifecycle-project/ds-upload/blob/master/R/qc_local_core.R'><code>R/qc_local_core.R</code></a></small>
-    <div class="hidden name"><code>du.quality.local.core.child.birth.out.Rd</code></div>
+    <h1>Reshape Script for R: LifeCycle Harmonized Data</h1>
+    <small class="dont-index">Source: <a href='https://github.com/lifecycle-project/ds-upload/blob/master/R/reshape_beta.R'><code>R/reshape_beta.R</code></a></small>
+    <div class="hidden name"><code>du.reshape.beta.Rd</code></div>
     </div>
 
     <div class="ref-description">
-    <p>Part of child characteristics
-Child birth outcomes
-Involves variables 79-97</p>
+    <p>Reshape Script for R: LifeCycle Harmonized Data</p>
     </div>
 
-    <pre class="usage"><span class='fu'>du.quality.local.core.child.birth.out</span><span class='op'>(</span><span class='va'>lc_data</span><span class='op'>)</span></pre>
+    <pre class="usage"><span class='fu'>du.reshape.beta</span><span class='op'>(</span>
+  <span class='va'>upload</span>,
+  <span class='va'>data_version</span>,
+  <span class='va'>input_format</span>,
+  <span class='va'>dict_name</span>,
+  <span class='va'>input_path</span>,
+  <span class='va'>non_interactive</span>
+<span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
-      <th>lc_data</th>
-      <td><p>core variables from LifeCycle</p></td>
+      <th>upload</th>
+      <td><p>do you want automatically upload the files to your opal (default = true)</p></td>
+    </tr>
+    <tr>
+      <th>data_version</th>
+      <td><p>version of the data you are going to upload into Opal</p></td>
+    </tr>
+    <tr>
+      <th>input_format</th>
+      <td><p>possible formats are CSV,STATA,SPSS or SAS (default = CSV)</p></td>
+    </tr>
+    <tr>
+      <th>dict_name</th>
+      <td><p>version of the dictionary</p></td>
+    </tr>
+    <tr>
+      <th>non_interactive</th>
+      <td><p>if set to TRUE you will get no questions</p></td>
+    </tr>
+    <tr>
+      <th>data_input_path</th>
+      <td><p>path for import file</p></td>
     </tr>
     </table>
 

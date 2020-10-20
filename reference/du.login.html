@@ -72,7 +72,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">dsUpload</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">3.0.0</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">3.1.0</span>
       </span>
     </div>
 
@@ -95,7 +95,10 @@
   </a>
   <ul class="dropdown-menu" role="menu">
     <li>
-      <a href="../articles/DSUpload.html">DSUpload</a>
+      <a href="../articles/DSUpload.html">dsUpload</a>
+    </li>
+    <li>
+      <a href="../articles/betaDictionaries.html">Beta dictionaries</a>
     </li>
   </ul>
 </li>
@@ -129,7 +132,7 @@
     <p>Login into the opal instance and</p>
     </div>
 
-    <pre class="usage"><span class='fu'>du.login</span>(<span class='no'>hostname</span>, <span class='kw'>username</span> <span class='kw'>=</span> <span class='st'>"administrator"</span>, <span class='no'>password</span>, <span class='kw'>insecure</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>)</pre>
+    <pre class="usage"><span class='fu'>du.login</span><span class='op'>(</span><span class='va'>hostname</span>, username <span class='op'>=</span> <span class='st'>"administrator"</span>, <span class='va'>password</span>, insecure <span class='op'>=</span> <span class='cn'>FALSE</span><span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -154,13 +157,15 @@
 
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='kw'>if</span> (<span class='fl'>FALSE</span>) {
-<span class='fu'>du.login</span>(
-  <span class='kw'>hostname</span> <span class='kw'>=</span> <span class='st'>"https://cohort-datashield-server.org"</span>,
-  <span class='kw'>username</span> <span class='kw'>=</span> <span class='st'>"local_dm"</span>,
-  <span class='kw'>password</span> <span class='kw'>=</span> <span class='st'>"very-secret-pw"</span>
-)
-}</div></pre>
+    <pre class="examples"><div class='input'><span class='kw'>if</span> <span class='op'>(</span><span class='cn'>FALSE</span><span class='op'>)</span> <span class='op'>{</span>
+<span class='fu'>du.login</span><span class='op'>(</span>
+  hostname <span class='op'>=</span> <span class='st'>"https://cohort-datashield-server.org"</span>,
+  username <span class='op'>=</span> <span class='st'>"local_dm"</span>,
+  password <span class='op'>=</span> <span class='st'>"very-secret-pw"</span>
+<span class='op'>)</span>
+<span class='op'>}</span>
+
+</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">
@@ -176,7 +181,7 @@
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.5.1.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.1.</p>
 </div>
 
       </footer>
