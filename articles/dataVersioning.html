@@ -99,20 +99,40 @@
 <div id="data-versioning" class="section level2">
 <h2 class="hasAnchor">
 <a href="#data-versioning" class="anchor"></a>Data versioning</h2>
-<p>We suggest to version the data that you upload. This is needed because of the reproducability of the research that is going to be performed on the datasets. We are suggesting to do this based upon (<a href="https://semver.org">semantic versioning</a>). A better explanation on using semantic versioning in data can be found here: <a href="https://medium.com/data-architect/semantic-versioning-for-data-products-2b060962093">semantic versioning for data products</a>.</p>
+<p>We suggest to version the data that you upload. This is needed because of the reproducibility of the research that is going to be performed on the datasets. We are suggesting to do this based upon (<a href="https://semver.org">semantic versioning</a>). A better explanation on using semantic versioning in data can be found here: <a href="https://medium.com/data-architect/semantic-versioning-for-data-products-2b060962093">semantic versioning for data products</a>.</p>
 <div id="semantic-versioning" class="section level3">
 <h3 class="hasAnchor">
 <a href="#semantic-versioning" class="anchor"></a>Semantic versioning</h3>
-<p>The implementation of semantic versioning is as follows. * <strong>Major</strong> * Amending your dataset with new data * <strong>Minor</strong> * Correcting errors in the data (e.g. categories which are encoded the wrong way)</p>
+<p>The implementation of semantic versioning is as follows. - <strong>Major</strong> - Amending your dataset with new data - <strong>Minor</strong> - Correcting errors in the data (e.g. categories which are encoded the wrong way)</p>
 </div>
 </div>
 <div id="table-scheme" class="section level2">
 <h2 class="hasAnchor">
 <a href="#table-scheme" class="anchor"></a>Table scheme</h2>
 <p>The table scheme we use is composed of 2 components, the data version and the table name.</p>
-<p><strong>data-major _ data_minor - tablename</strong></p>
-<p><em>Examples for the ‘core’ tables</em> * 1_0-non_rep * 1_0-monthly_rep * 1_0-trimester_rep * 1_0-monthly_rep</p>
-<p><em>Examples for the ‘outcome’ tables</em> * 1_0-non_rep * 1_0-weekly_rep * 1_0-monthly_rep * 1_0-yearly_rep</p>
+<ul>
+<li><strong>data-major _ data_minor - tablename</strong></li>
+</ul>
+<div id="examples-for-the-core-tables" class="section level5">
+<h5 class="hasAnchor">
+<a href="#examples-for-the-core-tables" class="anchor"></a>Examples for the ‘core’ tables</h5>
+<ul>
+<li>1_0-non_rep</li>
+<li>1_0-monthly_rep</li>
+<li>1_0-trimester_rep</li>
+<li>1_0-monthly_rep</li>
+</ul>
+</div>
+<div id="examples-for-the-outcome-tables" class="section level5">
+<h5 class="hasAnchor">
+<a href="#examples-for-the-outcome-tables" class="anchor"></a>Examples for the ‘outcome’ tables</h5>
+<ul>
+<li>1_0-non_rep</li>
+<li>1_0-weekly_rep</li>
+<li>1_0-monthly_rep</li>
+<li>1_0-yearly_rep</li>
+</ul>
+</div>
 </div>
 <div id="changelogs" class="section level2">
 <h2 class="hasAnchor">
