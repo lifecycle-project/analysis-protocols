@@ -2,7 +2,8 @@ pandoc: '2.2'
 pkgdown: 1.6.1
 pkgdown_sha: ~
 articles:
-  DSUpload: DSUpload.html
   betaDictionaries: betaDictionaries.html
-last_built: 2020-10-20T20:17Z
+  dataVersioning: dataVersioning.html
+  dsUpload: dsUpload.html
+last_built: 2020-10-28T08:56Z
 
