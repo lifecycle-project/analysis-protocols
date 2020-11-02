@@ -6,8 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Populate your Opal instance with the new version of the data dictionary
-Involves only the core variables — du.populate • dsUpload</title>
+<title>Check non repeated measures — qc.non.repeated • dsUpload</title>
 
 
 <!-- jquery -->
@@ -40,10 +39,8 @@ Involves only the core variables — du.populate • dsUpload</title>
 
 
 
-<meta property="og:title" content="Populate your Opal instance with the new version of the data dictionary
-Involves only the core variables — du.populate" />
-<meta property="og:description" content="Populate your Opal instance with the new version of the data dictionary
-Involves only the core variables" />
+<meta property="og:title" content="Check non repeated measures — qc.non.repeated" />
+<meta property="og:description" content="Check non repeated measures" />
 
 
 
@@ -132,47 +129,34 @@ Involves only the core variables" />
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Populate your Opal instance with the new version of the data dictionary
-Involves only the core variables</h1>
-    <small class="dont-index">Source: <a href='https://github.com/lifecycle-project/ds-upload/blob/master/R/populate.R'><code>R/populate.R</code></a></small>
-    <div class="hidden name"><code>du.populate.Rd</code></div>
+    <h1>Check non repeated measures</h1>
+    <small class="dont-index">Source: <a href='https://github.com/lifecycle-project/ds-upload/blob/master/R/quality_control.R'><code>R/quality_control.R</code></a></small>
+    <div class="hidden name"><code>qc.non.repeated.Rd</code></div>
     </div>
 
     <div class="ref-description">
-    <p>Populate your Opal instance with the new version of the data dictionary
-Involves only the core variables</p>
+    <p>Check non repeated measures</p>
     </div>
 
-    <pre class="usage"><span class='fu'>du.populate</span><span class='op'>(</span><span class='va'>dict_version</span>, <span class='va'>cohort_id</span>, <span class='va'>data_version</span>, <span class='va'>database_name</span>, <span class='va'>dict_kind</span><span class='op'>)</span></pre>
+    <pre class="usage"><span class='fu'>qc.non.repeated</span><span class='op'>(</span><span class='va'>conns</span>, <span class='va'>table</span>, <span class='va'>verbose</span><span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
-      <th>dict_version</th>
-      <td><p>dictionary version</p></td>
+      <th>conns</th>
+      <td><p>connections object for DataSHIELD backend</p></td>
     </tr>
     <tr>
-      <th>cohort_id</th>
-      <td><p>cohort identifier (possible values are: 'dnbc', 'gecko', 'alspac', 'genr', 'moba', 'sws', 'bib', 'chop', 'elfe', 'eden', 'ninfea', 'hbcs', 'inma', 'isglobal', 'nfbc66', 'nfbc86', 'raine', 'rhea')</p></td>
+      <th>table</th>
+      <td><p>to quality check</p></td>
     </tr>
     <tr>
-      <th>data_version</th>
-      <td><p>version of the data (specific to the cohort)</p></td>
-    </tr>
-    <tr>
-      <th>database_name</th>
-      <td><p>the database name specified in your Opal instance (defaults to 'opal_data')</p></td>
-    </tr>
-    <tr>
-      <th>dict_kind</th>
-      <td><p>dictionnary kind, can be 'core' or 'outcome'</p></td>
+      <th>verbose</th>
+      <td><p>print verbose output</p></td>
     </tr>
     </table>
 
-    <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
-
-    <p>project id to use in central quality control</p>
 
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">

@@ -62,6 +62,9 @@
     <li>
       <a href="../articles/dataVersioning.html">Data versioning</a>
     </li>
+    <li>
+      <a href="../articles/qualityControl.html">Quality control</a>
+    </li>
   </ul>
 </li>
       </ul>
@@ -108,7 +111,7 @@
 <div id="installation" class="section level2">
 <h2 class="hasAnchor">
 <a href="#installation" class="anchor"></a>Installation</h2>
-<p>Reference documentation: - <a href="https://lifecycle-project.github.io/lifecycle-project/ds-upload">dsUpload</a> - <a href="http://molgenis.github.io/molgenis/molgenis-r-armadillo">Armadillo</a> - <a href="http://opaldoc.obiba.org/en/latest/r-user-guide/datashield.html">Opal</a></p>
+<p>Reference documentation: - <a href="https://lifecycle-project.github.io/ds-upload">dsUpload</a> - <a href="http://molgenis.github.io/molgenis-r-armadillo">Armadillo</a> - <a href="http://opaldoc.obiba.org/en/latest/r-user-guide/datashield.html">Opal</a></p>
 <p>You can install the package by executing the following command:</p>
 <div class="sourceCode" id="cb1"><pre class="downlit">
 <span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span><span class="op">(</span><span class="st">"dsUpload"</span>, repos<span class="op">=</span><span class="st">'https://registry.molgenis.org/repository/R/'</span>, dependencies <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></pre></div>
@@ -139,7 +142,6 @@ Merge all the variables that are obtained in the dictionary of the core variable
 <span class="co"># login to the DataSHIELD backend</span>
 <span class="fu"><a href="../reference/du.login.html">du.login</a></span><span class="op">(</span>
   hostname <span class="op">=</span> <span class="st">'https://opal.edge.molgenis.org'</span>, 
-  username <span class="op">=</span> <span class="st">'administrator'</span>, 
   password <span class="op">=</span> <span class="st">'admin'</span><span class="op">)</span>
 <span class="co">#&gt;   Login to: "https://opal.edge.molgenis.org"</span>
 <span class="co">#&gt;   Logged on to: "https://opal.edge.molgenis.org"</span></pre></div>
@@ -177,46 +179,7 @@ Merge all the variables that are obtained in the dictionary of the core variable
 <span class="co">#&gt;  * Check released dictionaries</span>
 <span class="co">#&gt; ------------------------------------------------------</span>
 <span class="co">#&gt;   Start importing dictionaries</span>
-<span class="co">#&gt; * Create table: [ 1_0_monthly ]</span>
-<span class="co">#&gt; * Import variables into: [ 1_0_monthly ]</span>
-<span class="co">#&gt; * Create table: [ 1_0_non ]</span>
-<span class="co">#&gt; * Matched categories for table: [ 1_0_non ]</span>
-<span class="co">#&gt; * Import variables into: [ 1_0_non ]</span>
-<span class="co">#&gt; * Create table: [ 1_0_trimester ]</span>
-<span class="co">#&gt; * Matched categories for table: [ 1_0_trimester ]</span>
-<span class="co">#&gt; * Import variables into: [ 1_0_trimester ]</span>
-<span class="co">#&gt; * Create table: [ 1_0_yearly ]</span>
-<span class="co">#&gt; * Matched categories for table: [ 1_0_yearly ]</span>
-<span class="co">#&gt; * Import variables into: [ 1_0_yearly ]</span>
-<span class="co">#&gt;   All dictionaries are populated correctly</span>
-<span class="co">#&gt; ######################################################</span>
-<span class="co">#&gt;   Importing data dictionaries has finished</span>
-<span class="co">#&gt; ######################################################</span>
-<span class="co">#&gt; ######################################################</span>
-<span class="co">#&gt;   Start reshaping data</span>
-<span class="co">#&gt; ######################################################</span>
-<span class="co">#&gt; * Setup: load data and set output directory</span>
-<span class="co">#&gt; ------------------------------------------------------</span>
-<span class="co">#&gt; Parsed with column specification:</span>
-<span class="co">#&gt; cols(</span>
-<span class="co">#&gt;   .default = col_double()</span>
-<span class="co">#&gt; )</span>
-<span class="co">#&gt; See spec(...) for full column specifications.</span>
-<span class="co">#&gt; [WARNING] This is an unmatched column, it will be dropped : [ art ].</span>
-<span class="co">#&gt; * Generating: non-repeated measures</span>
-<span class="co">#&gt; * Upload: [ 2020-10-20_21-24-03_1_0_non_repeated_measures.csv ] to directory [ core ]</span>
-<span class="co">#&gt; * Generating: yearly-repeated measures</span>
-<span class="co">#&gt; Aggregate function missing, defaulting to 'length'</span>
-<span class="co">#&gt; * Upload: [ 2020-10-20_21-24-03_1_0_yearly_repeated_measures.csv ] to directory [ core ]</span>
-<span class="co">#&gt; * Generating: monthly-repeated measures</span>
-<span class="co">#&gt; Aggregate function missing, defaulting to 'length'</span>
-<span class="co">#&gt; * Upload: [ 2020-10-20_21-24-03_1_0_monthly_repeated_measures.csv ] to directory [ core ]</span>
-<span class="co">#&gt; * Generating: trimesterly-repeated measures</span>
-<span class="co">#&gt; Aggregate function missing, defaulting to 'length'</span>
-<span class="co">#&gt; * Upload: [ 2020-10-20_21-24-03_1_0_trimester_repeated_measures.csv ] to directory [ core ]</span>
-<span class="co">#&gt; ######################################################</span>
-<span class="co">#&gt;   Reshaping successfully finished</span>
-<span class="co">#&gt; ######################################################</span>
+<span class="co">#&gt; Error: Client error: (404) Not Found; NoSuchDatasource: lc_dnbc_core_2_1</span>
 <span class="co">#&gt;  * Reinstate default working directory</span>
 <span class="co">#&gt;  * Cleanup temporary directory</span></pre></div>
 <div class="sourceCode" id="cb5"><pre class="downlit">
@@ -250,42 +213,37 @@ Merge all the variables that are obtained in the dictionary of the core variable
 <span class="co">#&gt;  * Check released dictionaries</span>
 <span class="co">#&gt; ------------------------------------------------------</span>
 <span class="co">#&gt;   Start importing dictionaries</span>
-<span class="co">#&gt; * Create table: [ 1_0_monthly ]</span>
-<span class="co">#&gt; * Matched categories for table: [ 1_0_monthly ]</span>
-<span class="co">#&gt; * Import variables into: [ 1_0_monthly ]</span>
-<span class="co">#&gt; * Create table: [ 1_0_non ]</span>
-<span class="co">#&gt; * Matched categories for table: [ 1_0_non ]</span>
-<span class="co">#&gt; * Import variables into: [ 1_0_non ]</span>
-<span class="co">#&gt; * Create table: [ 1_0_weekly ]</span>
-<span class="co">#&gt; * Import variables into: [ 1_0_weekly ]</span>
-<span class="co">#&gt; * Create table: [ 1_0_yearly ]</span>
-<span class="co">#&gt; * Matched categories for table: [ 1_0_yearly ]</span>
-<span class="co">#&gt; * Import variables into: [ 1_0_yearly ]</span>
+<span class="co">#&gt; * Create table: [ 1_0_monthly_rep ]</span>
+<span class="co">#&gt; * Matched categories for table: [ 1_0_monthly_rep ]</span>
+<span class="co">#&gt; * Import variables into: [ 1_0_monthly_rep ]</span>
+<span class="co">#&gt; * Create table: [ 1_0_non_rep ]</span>
+<span class="co">#&gt; * Matched categories for table: [ 1_0_non_rep ]</span>
+<span class="co">#&gt; * Import variables into: [ 1_0_non_rep ]</span>
+<span class="co">#&gt; * Create table: [ 1_0_weekly_rep ]</span>
+<span class="co">#&gt; * Import variables into: [ 1_0_weekly_rep ]</span>
+<span class="co">#&gt; * Create table: [ 1_0_yearly_rep ]</span>
+<span class="co">#&gt; * Matched categories for table: [ 1_0_yearly_rep ]</span>
+<span class="co">#&gt; * Import variables into: [ 1_0_yearly_rep ]</span>
 <span class="co">#&gt;   All dictionaries are populated correctly</span>
-<span class="co">#&gt; ######################################################</span>
-<span class="co">#&gt;   Importing data dictionaries has finished</span>
-<span class="co">#&gt; ######################################################</span>
 <span class="co">#&gt; ######################################################</span>
 <span class="co">#&gt;   Start reshaping data</span>
 <span class="co">#&gt; ######################################################</span>
 <span class="co">#&gt; * Setup: load data and set output directory</span>
 <span class="co">#&gt; ------------------------------------------------------</span>
-<span class="co">#&gt; Parsed with column specification:</span>
-<span class="co">#&gt; cols(</span>
-<span class="co">#&gt;   .default = col_double()</span>
-<span class="co">#&gt; )</span>
-<span class="co">#&gt; See spec(...) for full column specifications.</span>
 <span class="co">#&gt; * Generating: non-repeated measures</span>
-<span class="co">#&gt; * Upload: [ 2020-10-20_21-24-34_1_0_non_repeated_measures.csv ] to directory [ outcome ]</span>
+<span class="co">#&gt; * Upload: [ 2020-11-02_11-45-42_1_0_non_repeated_measures.csv ] to directory [ outcome ]</span>
 <span class="co">#&gt; * Generating: yearly-repeated measures</span>
-<span class="co">#&gt; * Upload: [ 2020-10-20_21-24-34_1_0_yearly_repeated_measures.csv ] to directory [ outcome ]</span>
+<span class="co">#&gt; * Upload: [ 2020-11-02_11-45-42_1_0_yearly_repeated_measures.csv ] to directory [ outcome ]</span>
 <span class="co">#&gt; * Generating: monthly-repeated measures</span>
-<span class="co">#&gt; * Upload: [ 2020-10-20_21-24-34_1_0_monthly_repeated_measures.csv ] to directory [ outcome ]</span>
+<span class="co">#&gt; * Upload: [ 2020-11-02_11-45-42_1_0_monthly_repeated_measures.csv ] to directory [ outcome ]</span>
 <span class="co">#&gt; * Generating: weekly-repeated measures</span>
-<span class="co">#&gt; * Upload: [ 2020-10-20_21-24-34_1_0_weekly_repeated_measures.csv ] to directory [ outcome ]</span>
+<span class="co">#&gt; * Upload: [ 2020-11-02_11-45-42_1_0_weekly_repeated_measures.csv ] to directory [ outcome ]</span>
 <span class="co">#&gt; ######################################################</span>
 <span class="co">#&gt;   Reshaping successfully finished</span>
 <span class="co">#&gt; ######################################################</span>
+<span class="co">#&gt;   Starting quality control</span>
+<span class="co">#&gt; ------------------------------------------------------</span>
+<span class="co">#&gt; Error in du.quality.control(project): object 'project' not found</span>
 <span class="co">#&gt;  * Reinstate default working directory</span>
 <span class="co">#&gt;  * Cleanup temporary directory</span></pre></div>
 <blockquote>
