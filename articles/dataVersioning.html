@@ -31,7 +31,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">dsUpload</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">3.1.0</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">4.0.0</span>
       </span>
     </div>
 
@@ -106,7 +106,21 @@
 <div id="semantic-versioning" class="section level3">
 <h3 class="hasAnchor">
 <a href="#semantic-versioning" class="anchor"></a>Semantic versioning</h3>
-<p>The implementation of semantic versioning is as follows. - Major - Amending your dataset with new data - Minor - Correcting errors in the data (e.g. categories which are encoded the wrong way)</p>
+<p>The implementation of semantic versioning is as follows.</p>
+<ul>
+<li>
+<strong>Major</strong>
+<ul>
+<li>Amending your dataset with new data</li>
+</ul>
+</li>
+<li>
+<strong>Minor</strong>
+<ul>
+<li>Correcting errors in the data (e.g. categories which are encoded the wrong way)</li>
+</ul>
+</li>
+</ul>
 </div>
 </div>
 <div id="table-scheme" class="section level2">
@@ -135,6 +149,39 @@
 <li>1_0-monthly_rep</li>
 <li>1_0-yearly_rep</li>
 </ul>
+</div>
+<div id="other-approaches" class="section level3">
+<h3 class="hasAnchor">
+<a href="#other-approaches" class="anchor"></a>Other approaches</h3>
+<p>Semantic versioning is just one of the strategies you can use. Date-based versioning is also a good way to deal with this examples can be:</p>
+<div id="examples-for-the-core-tables-1" class="section level5">
+<h5 class="hasAnchor">
+<a href="#examples-for-the-core-tables-1" class="anchor"></a>Examples for the ‘core’ tables</h5>
+<p><em>Full datetime</em></p>
+<ul>
+<li>2020-11-02 21:36
+<ul>
+<li>20201102_2136-non_rep</li>
+</ul>
+</li>
+</ul>
+<p><em>Date only</em></p>
+<ul>
+<li>2020-11-02
+<ul>
+<li>202011_02-monthly_rep</li>
+</ul>
+</li>
+</ul>
+<p><em>Date month</em> - if you have less iterations</p>
+<ul>
+<li>2020-11
+<ul>
+<li>2020-11-trimester_rep</li>
+</ul>
+</li>
+</ul>
+</div>
 </div>
 </div>
 <div id="changelogs" class="section level2">
