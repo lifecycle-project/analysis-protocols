@@ -31,7 +31,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">dsUpload</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">4.0.0</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">4.0.0.9000</span>
       </span>
     </div>
 
@@ -143,8 +143,8 @@
 <h2 class="hasAnchor">
 <a href="#upload-dictionaries-and-data-to-opal" class="anchor"></a>Upload dictionaries and data to Opal</h2>
 <p>When a first version of a beta dictionary is available, you can upload it to opal with the following code:</p>
-<div class="sourceCode" id="cb1"><pre class="downlit">
-<span class="fu"><a href="../reference/du.login.html">du.login</a></span><span class="op">(</span>
+<div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="../reference/du.login.html">du.login</a></span><span class="op">(</span>
   hostname <span class="op">=</span> <span class="st">"https://opal.edge.molgenis.org"</span>, 
   password <span class="op">=</span> <span class="st">"admin"</span><span class="op">)</span>
 <span class="co">#&gt;   Login to: "https://opal.edge.molgenis.org"</span>
@@ -187,7 +187,7 @@
 <span class="co">#&gt; Logging into the collaborating servers</span>
 <span class="co">#&gt; Error in getClass(Class, where = topenv(parent.frame())): "OpalDriver" is not a defined class</span>
 <span class="co">#&gt;  * Reinstate default working directory</span>
-<span class="co">#&gt;  * Cleanup temporary directory</span></pre></div>
+<span class="co">#&gt;  * Cleanup temporary directory</span></code></pre></div>
 <p>After this youj need to manually upload the data just like you would in a released data upload. &gt; Be advised: the data is now placed into directories on the target system, in this case a “beta” directory</p>
 </div>
 </div>

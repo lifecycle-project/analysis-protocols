@@ -31,7 +31,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">dsUpload</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">4.0.0</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">4.0.0.9000</span>
       </span>
     </div>
 
@@ -113,12 +113,12 @@
 <a href="#installation" class="anchor"></a>Installation</h2>
 <p>Reference documentation: - <a href="https://lifecycle-project.github.io/ds-upload">dsUpload</a> - <a href="http://molgenis.github.io/molgenis-r-armadillo">Armadillo</a> - <a href="http://opaldoc.obiba.org/en/latest/r-user-guide/datashield.html">Opal</a></p>
 <p>You can install the package by executing the following command:</p>
-<div class="sourceCode" id="cb1"><pre class="downlit">
-<span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span><span class="op">(</span><span class="st">"dsUpload"</span>, repos<span class="op">=</span><span class="st">'https://registry.molgenis.org/repository/R/'</span>, dependencies <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></pre></div>
+<div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span><span class="op">(</span><span class="st">"dsUpload"</span>, repos<span class="op">=</span><span class="st">'https://registry.molgenis.org/repository/R/'</span>, dependencies <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></code></pre></div>
 <p>When you want to use it you need to load it.</p>
-<div class="sourceCode" id="cb2"><pre class="downlit">
-<span class="co"># load the package</span>
-<span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/lifecycle-project/ds-upload">dsUpload</a></span><span class="op">)</span></pre></div>
+<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="co"># load the package</span>
+<span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/lifecycle-project/ds-upload">dsUpload</a></span><span class="op">)</span></code></pre></div>
 </div>
 <div id="troubleshooting" class="section level2">
 <h2 class="hasAnchor">
@@ -144,17 +144,17 @@
 <h3 class="hasAnchor">
 <a href="#using-armadillo" class="anchor"></a>Using Armadillo</h3>
 <p>Please following the instruction below to upload the core and outcome variables in the Aramdillo.</p>
-<div class="sourceCode" id="cb3"><pre class="downlit">
-<span class="va">login_data</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html">data.frame</a></span><span class="op">(</span>
+<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">login_data</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html">data.frame</a></span><span class="op">(</span>
   server <span class="op">=</span> <span class="st">"https://armadillo.test.molgenis.org"</span>, 
   storage <span class="op">=</span> <span class="st">"https://armadillo-minio.test.molgenis.org"</span>, 
-  driver <span class="op">=</span> <span class="st">"ArmadilloDriver"</span><span class="op">)</span></pre></div>
-<div class="sourceCode" id="cb4"><pre class="downlit">
-<span class="co"># login to the Armadillo server</span>
+  driver <span class="op">=</span> <span class="st">"ArmadilloDriver"</span><span class="op">)</span></code></pre></div>
+<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="co"># login to the Armadillo server</span>
 <span class="fu"><a href="../reference/du.login.html">du.login</a></span><span class="op">(</span>login_data <span class="op">=</span> <span class="va">login_data</span><span class="op">)</span>
 <span class="co">#&gt;   Login to: "https://armadillo.test.molgenis.org"</span>
 <span class="co">#&gt; [1] "We're opening a browser so you can log in with code DGWSMP"</span>
-<span class="co">#&gt;   Logged on to: "https://armadillo.test.molgenis.org"</span></pre></div>
+<span class="co">#&gt;   Logged on to: "https://armadillo.test.molgenis.org"</span></code></pre></div>
 <div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb5-1" data-line-number="1"><span class="co"># upload the data into the DataSHIELD backend</span></a>
 <a class="sourceLine" id="cb5-2" data-line-number="2"><span class="co"># these are the core variables</span></a>
 <a class="sourceLine" id="cb5-3" data-line-number="3"><span class="co"># be advised the default input format is 'CSV'</span></a>
@@ -365,19 +365,19 @@
 <p>A video guiding you through the process can be found here:</p>
 <p>Check youtube channel: <a href="https://youtu.be/fUrpbstPCsU">upload data dictionaries and data into Opal</a></p>
 <p>Alternatively, execute these commands in your R-console:</p>
-<div class="sourceCode" id="cb7"><pre class="downlit">
-<span class="va">login_data</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html">data.frame</a></span><span class="op">(</span>
+<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">login_data</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html">data.frame</a></span><span class="op">(</span>
   server <span class="op">=</span> <span class="st">"https://opal.edge.molgenis.org"</span>, 
   user <span class="op">=</span> <span class="st">"administrator"</span>, 
   password <span class="op">=</span> <span class="st">"admin"</span>,
-  driver <span class="op">=</span> <span class="st">"OpalDriver"</span><span class="op">)</span></pre></div>
-<div class="sourceCode" id="cb8"><pre class="downlit">
-<span class="co"># login to the DataSHIELD backend</span>
+  driver <span class="op">=</span> <span class="st">"OpalDriver"</span><span class="op">)</span></code></pre></div>
+<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="co"># login to the DataSHIELD backend</span>
 <span class="fu"><a href="../reference/du.login.html">du.login</a></span><span class="op">(</span>login_data <span class="op">=</span> <span class="va">login_data</span><span class="op">)</span>
 <span class="co">#&gt;   Login to: "https://opal.edge.molgenis.org"</span>
-<span class="co">#&gt;   Logged on to: "https://opal.edge.molgenis.org"</span></pre></div>
-<div class="sourceCode" id="cb9"><pre class="downlit">
-<span class="co"># upload the data into the DataSHIELD backend</span>
+<span class="co">#&gt;   Logged on to: "https://opal.edge.molgenis.org"</span></code></pre></div>
+<div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="co"># upload the data into the DataSHIELD backend</span>
 <span class="co"># these are the core variables</span>
 <span class="co"># be advised the default input format is 'CSV'</span>
 <span class="co"># you can use STATA, SPSS, SAS and CSV's as source files</span>
@@ -448,9 +448,9 @@
 <span class="co">#&gt; Loading required namespace: DSOpal</span>
 <span class="co">#&gt; Error in private$.is.empty(server): argument "server" is missing, with no default</span>
 <span class="co">#&gt;  * Reinstate default working directory</span>
-<span class="co">#&gt;  * Cleanup temporary directory</span></pre></div>
-<div class="sourceCode" id="cb10"><pre class="downlit">
-<span class="co"># upload the outcome variables</span>
+<span class="co">#&gt;  * Cleanup temporary directory</span></code></pre></div>
+<div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="co"># upload the outcome variables</span>
 <span class="fu"><a href="../reference/du.upload.html">du.upload</a></span><span class="op">(</span>
   cohort_id <span class="op">=</span> <span class="st">'dnbc'</span>, 
   dict_version <span class="op">=</span> <span class="st">'1_1'</span>, 
@@ -513,7 +513,7 @@
 <span class="co">#&gt; ------------------------------------------------------</span>
 <span class="co">#&gt; Error in private$.is.empty(server): argument "server" is missing, with no default</span>
 <span class="co">#&gt;  * Reinstate default working directory</span>
-<span class="co">#&gt;  * Cleanup temporary directory</span></pre></div>
+<span class="co">#&gt;  * Cleanup temporary directory</span></code></pre></div>
 <blockquote>
 <p><strong>IMPORTANT</strong>: Check if the data is correctly imported in the tables in Opal. Randomly select some values and check if they are correct with your actual data. That should be sufficient to know if the data is imported correctly,</p>
 </blockquote>
