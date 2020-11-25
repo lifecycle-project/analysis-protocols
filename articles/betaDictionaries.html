@@ -106,7 +106,7 @@
 <div id="how-it-works" class="section level2">
 <h2 class="hasAnchor">
 <a href="#how-it-works" class="anchor"></a>How it works</h2>
-<p>You need to have a few prerequisites - <a href="https://git-scm.com/">Git</a> - <a href="https://rstudio.com/">RStudio</a> - <a href="https://">Opal</a> - <a href="https://www.microsoft.com/nl-nl/microsoft-365/excel">Excel</a></p>
+<p>You need to have a few prerequisites - <a href="https://git-scm.com/">Git</a> - <a href="https://rstudio.com/">RStudio</a> - <a href="https://github.com/obiba/opal">Opal</a> - <a href="https://github.com/molgenis/molgenis-service-armadillo">Opal</a> - <a href="https://www.microsoft.com/nl-nl/microsoft-365/excel">Excel</a></p>
 </div>
 <div id="working-with-ds-beta-dictionaries" class="section level2">
 <h2 class="hasAnchor">
@@ -143,51 +143,63 @@
 <h2 class="hasAnchor">
 <a href="#upload-dictionaries-and-data-to-opal" class="anchor"></a>Upload dictionaries and data to Opal</h2>
 <p>When a first version of a beta dictionary is available, you can upload it to opal with the following code:</p>
-<div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="../reference/du.login.html">du.login</a></span><span class="op">(</span>
-  hostname <span class="op">=</span> <span class="st">"https://opal.edge.molgenis.org"</span>, 
-  password <span class="op">=</span> <span class="st">"admin"</span><span class="op">)</span>
-<span class="co">#&gt;   Login to: "https://opal.edge.molgenis.org"</span>
-<span class="co">#&gt;   Logged on to: "https://opal.edge.molgenis.org"</span>
-  
-<span class="fu"><a href="../reference/du.upload.beta.html">du.upload.beta</a></span><span class="op">(</span>
-  dict_name <span class="op">=</span> <span class="st">"example-dictionary"</span>, 
-  data_input_path <span class="op">=</span> <span class="st">"/Users/sido/VisualStudioCodeProjects/ds-beta-dictionaries/data/example-dictionary/beta_dict_generated_data.csv"</span><span class="op">)</span>
-<span class="co">#&gt; ######################################################</span>
-<span class="co">#&gt;   Start upload BETA data into DataSHIELD backend</span>
-<span class="co">#&gt; ------------------------------------------------------</span>
-<span class="co">#&gt;  * Create temporary workdir</span>
-<span class="co">#&gt; ######################################################</span>
-<span class="co">#&gt;   Start download dictionaries</span>
-<span class="co">#&gt; ------------------------------------------------------</span>
-<span class="co">#&gt; * Download: [ example-dictionary-non_rep.xlsx ]</span>
-<span class="co">#&gt;   Successfully downloaded dictionaries</span>
-<span class="co">#&gt; ------------------------------------------------------</span>
-<span class="co">#&gt;   Start creating project: [ lc_beta_example-dictionary ]</span>
-<span class="co">#&gt; ------------------------------------------------------</span>
-<span class="co">#&gt;   Start importing dictionaries</span>
-<span class="co">#&gt; * Create table: [ example-dictionary-non_rep ]</span>
-<span class="co">#&gt; * Matched categories for table: [ example-dictionary-non_rep ]</span>
-<span class="co">#&gt; * Import variables into: [ example-dictionary-non_rep ]</span>
-<span class="co">#&gt;   All dictionaries are populated correctly</span>
-<span class="co">#&gt; ######################################################</span>
-<span class="co">#&gt;   Start reshaping data</span>
-<span class="co">#&gt; ######################################################</span>
-<span class="co">#&gt; * Setup: load data and set output directory</span>
-<span class="co">#&gt; ------------------------------------------------------</span>
-<span class="co">#&gt; * Generating: non-repeated measures</span>
-<span class="co">#&gt; * Upload: [ 2020-11-02_12-05-26_example-dictionary-non_rep.csv ] to directory [ beta ]</span>
-<span class="co">#&gt; ######################################################</span>
-<span class="co">#&gt;   Reshaping successfully finished</span>
-<span class="co">#&gt; ######################################################</span>
-<span class="co">#&gt;   Starting quality control</span>
-<span class="co">#&gt; ------------------------------------------------------</span>
-<span class="co">#&gt;  * Starting with: lc_beta_example-dictionary - example-dictionary-non_rep</span>
-<span class="co">#&gt; </span>
-<span class="co">#&gt; Logging into the collaborating servers</span>
-<span class="co">#&gt; Error in getClass(Class, where = topenv(parent.frame())): "OpalDriver" is not a defined class</span>
-<span class="co">#&gt;  * Reinstate default working directory</span>
-<span class="co">#&gt;  * Cleanup temporary directory</span></code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1-1" data-line-number="1">login_data &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">server =</span> <span class="st">"https://armadillo.test.molgenis.org"</span>, <span class="dt">storage =</span> <span class="st">"https://armadillo-minio.test.molgenis.org"</span>, <span class="dt">driver =</span> <span class="st">"ArmadilloDriver"</span>)</a>
+<a class="sourceLine" id="cb1-2" data-line-number="2"></a>
+<a class="sourceLine" id="cb1-3" data-line-number="3"><span class="kw">du.login</span>(login_data)</a>
+<a class="sourceLine" id="cb1-4" data-line-number="4"><span class="co">#&gt;   Login to: "https://armadillo.test.molgenis.org"</span></a>
+<a class="sourceLine" id="cb1-5" data-line-number="5"><span class="co">#&gt; [1] "We're opening a browser so you can log in with code YB9FBS"</span></a>
+<a class="sourceLine" id="cb1-6" data-line-number="6"><span class="co">#&gt;   Logged on to: "https://armadillo.test.molgenis.org"</span></a>
+<a class="sourceLine" id="cb1-7" data-line-number="7">  </a>
+<a class="sourceLine" id="cb1-8" data-line-number="8"><span class="kw">du.upload.beta</span>(</a>
+<a class="sourceLine" id="cb1-9" data-line-number="9">  <span class="dt">dict_name =</span> <span class="st">"example-dictionary"</span>, </a>
+<a class="sourceLine" id="cb1-10" data-line-number="10">  <span class="dt">data_input_path =</span> <span class="st">"/Users/sido/VisualStudioCodeProjects/ds-beta-dictionaries/data/example-dictionary/beta_dict_generated_data.csv"</span>)</a>
+<a class="sourceLine" id="cb1-11" data-line-number="11"><span class="co">#&gt; ######################################################</span></a>
+<a class="sourceLine" id="cb1-12" data-line-number="12"><span class="co">#&gt;   Start upload BETA data into DataSHIELD backend</span></a>
+<a class="sourceLine" id="cb1-13" data-line-number="13"><span class="co">#&gt; ------------------------------------------------------</span></a>
+<a class="sourceLine" id="cb1-14" data-line-number="14"><span class="co">#&gt;  * Create temporary workdir</span></a>
+<a class="sourceLine" id="cb1-15" data-line-number="15"><span class="co">#&gt; ######################################################</span></a>
+<a class="sourceLine" id="cb1-16" data-line-number="16"><span class="co">#&gt;   Start download dictionaries</span></a>
+<a class="sourceLine" id="cb1-17" data-line-number="17"><span class="co">#&gt; ------------------------------------------------------</span></a>
+<a class="sourceLine" id="cb1-18" data-line-number="18"><span class="co">#&gt; * Download: [ example-dictionary-non_rep.xlsx ]</span></a>
+<a class="sourceLine" id="cb1-19" data-line-number="19"><span class="co">#&gt; * Download: [ example-dictionary-yearly_rep.xlsx ]</span></a>
+<a class="sourceLine" id="cb1-20" data-line-number="20"><span class="co">#&gt;   Successfully downloaded dictionaries</span></a>
+<a class="sourceLine" id="cb1-21" data-line-number="21"><span class="co">#&gt; Created project 'exampledictionary'</span></a>
+<a class="sourceLine" id="cb1-22" data-line-number="22"><span class="co">#&gt; ######################################################</span></a>
+<a class="sourceLine" id="cb1-23" data-line-number="23"><span class="co">#&gt;   Start converting and importing data</span></a>
+<a class="sourceLine" id="cb1-24" data-line-number="24"><span class="co">#&gt; ######################################################</span></a>
+<a class="sourceLine" id="cb1-25" data-line-number="25"><span class="co">#&gt; * Setup: load data and set output directory</span></a>
+<a class="sourceLine" id="cb1-26" data-line-number="26"><span class="co">#&gt; ------------------------------------------------------</span></a>
+<a class="sourceLine" id="cb1-27" data-line-number="27"><span class="co">#&gt; * Generating: non-repeated measures</span></a>
+<a class="sourceLine" id="cb1-28" data-line-number="28"><span class="co">#&gt; * Start importing: beta into project: exampledictionary</span></a>
+<a class="sourceLine" id="cb1-29" data-line-number="29"><span class="co">#&gt; Compressing...</span></a>
+<a class="sourceLine" id="cb1-30" data-line-number="30"><span class="co">#&gt; </span></a>
+<a class="sourceLine" id="cb1-31" data-line-number="31">  <span class="op">|</span><span class="st">                                                                                                     </span></a>
+<a class="sourceLine" id="cb1-32" data-line-number="32"><span class="st">  </span><span class="er">|</span><span class="st">                                                                                               </span><span class="er">|</span><span class="st">   </span><span class="dv">0</span>%</a>
+<a class="sourceLine" id="cb1-33" data-line-number="33">  <span class="op">|</span><span class="st">                                                                                                     </span></a>
+<a class="sourceLine" id="cb1-34" data-line-number="34"><span class="st">  </span><span class="er">|===============================================================================================|</span><span class="st"> </span><span class="dv">100</span>%</a>
+<a class="sourceLine" id="cb1-35" data-line-number="35"><span class="co">#&gt; Uploaded beta/non_rep</span></a>
+<a class="sourceLine" id="cb1-36" data-line-number="36"><span class="co">#&gt; * Import finished successfully</span></a>
+<a class="sourceLine" id="cb1-37" data-line-number="37"><span class="co">#&gt; * Generating: yearly-repeated measures</span></a>
+<a class="sourceLine" id="cb1-38" data-line-number="38"><span class="co">#&gt; * Start importing: beta into project: exampledictionary</span></a>
+<a class="sourceLine" id="cb1-39" data-line-number="39"><span class="co">#&gt; Compressing...</span></a>
+<a class="sourceLine" id="cb1-40" data-line-number="40"><span class="co">#&gt; </span></a>
+<a class="sourceLine" id="cb1-41" data-line-number="41">  <span class="op">|</span><span class="st">                                                                                                     </span></a>
+<a class="sourceLine" id="cb1-42" data-line-number="42"><span class="st">  </span><span class="er">|</span><span class="st">                                                                                               </span><span class="er">|</span><span class="st">   </span><span class="dv">0</span>%</a>
+<a class="sourceLine" id="cb1-43" data-line-number="43">  <span class="op">|</span><span class="st">                                                                                                     </span></a>
+<a class="sourceLine" id="cb1-44" data-line-number="44"><span class="st">  </span><span class="er">|=============================</span><span class="st">                                                                  </span><span class="er">|</span><span class="st">  </span><span class="dv">31</span>%</a>
+<a class="sourceLine" id="cb1-45" data-line-number="45">  <span class="op">|</span><span class="st">                                                                                                     </span></a>
+<a class="sourceLine" id="cb1-46" data-line-number="46"><span class="st">  </span><span class="er">|===========================================================</span><span class="st">                                    </span><span class="er">|</span><span class="st">  </span><span class="dv">62</span>%</a>
+<a class="sourceLine" id="cb1-47" data-line-number="47">  <span class="op">|</span><span class="st">                                                                                                     </span></a>
+<a class="sourceLine" id="cb1-48" data-line-number="48"><span class="st">  </span><span class="er">|========================================================================================</span><span class="st">       </span><span class="er">|</span><span class="st">  </span><span class="dv">93</span>%</a>
+<a class="sourceLine" id="cb1-49" data-line-number="49">  <span class="op">|</span><span class="st">                                                                                                     </span></a>
+<a class="sourceLine" id="cb1-50" data-line-number="50"><span class="st">  </span><span class="er">|===============================================================================================|</span><span class="st"> </span><span class="dv">100</span>%</a>
+<a class="sourceLine" id="cb1-51" data-line-number="51"><span class="co">#&gt; Uploaded beta/yearly_rep</span></a>
+<a class="sourceLine" id="cb1-52" data-line-number="52"><span class="co">#&gt; * Import finished successfully</span></a>
+<a class="sourceLine" id="cb1-53" data-line-number="53"><span class="co">#&gt; ######################################################</span></a>
+<a class="sourceLine" id="cb1-54" data-line-number="54"><span class="co">#&gt;   Converting and import successfully finished</span></a>
+<a class="sourceLine" id="cb1-55" data-line-number="55"><span class="co">#&gt; ######################################################</span></a>
+<a class="sourceLine" id="cb1-56" data-line-number="56"><span class="co">#&gt;  * Reinstate default working directory</span></a>
+<a class="sourceLine" id="cb1-57" data-line-number="57"><span class="co">#&gt;  * Cleanup temporary directory</span></a></code></pre></div>
 <p>After this youj need to manually upload the data just like you would in a released data upload. &gt; Be advised: the data is now placed into directories on the target system, in this case a “beta” directory</p>
 </div>
 </div>
