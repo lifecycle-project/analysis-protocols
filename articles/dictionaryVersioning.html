@@ -5,13 +5,13 @@
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Data versioning • dsUpload</title>
+<title>Dictionairy versioning • dsUpload</title>
 <!-- jquery --><script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script><!-- Bootstrap --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/css/bootstrap.min.css" integrity="sha256-bZLfwXAP04zRMK2BjiO8iu9pf4FbLqX6zitd+tIvLhE=" crossorigin="anonymous">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/js/bootstrap.min.js" integrity="sha256-nuL8/2cJ5NDSSwnKD8VqreErSWHtnEP9E7AySL+1ev4=" crossorigin="anonymous"></script><!-- bootstrap-toc --><link rel="stylesheet" href="../bootstrap-toc.css">
 <script src="../bootstrap-toc.js"></script><!-- Font Awesome icons --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/v4-shims.min.css" integrity="sha256-wZjR52fzng1pJHwx4aV2AO3yyTOXrcDW7jBpJtTwVxw=" crossorigin="anonymous">
 <!-- clipboard.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><!-- headroom.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/headroom.min.js" integrity="sha256-AsUX4SJE1+yuDu5+mAVzJbuYNPHj/WroHuZ8Ir/CkE0=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script><!-- pkgdown --><link href="../pkgdown.css" rel="stylesheet">
-<script src="../pkgdown.js"></script><meta property="og:title" content="Data versioning">
+<script src="../pkgdown.js"></script><meta property="og:title" content="Dictionairy versioning">
 <meta property="og:description" content="dsUpload">
 <!-- mathjax --><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js" integrity="sha256-nvJJv9wWKEm88qvoQl9ekL2J+k/RWIsaSScxxlsrv8k=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/config/TeX-AMS-MML_HTMLorMML.js" integrity="sha256-84DKXVJXs0/F8OTMzX4UR909+jtl4G7SPypPavF+GfA=" crossorigin="anonymous"></script><!--[if lt IE 9]>
 <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
@@ -88,109 +88,113 @@
 
       
 
-      </header><script src="dataVersioning_files/header-attrs-2.6/header-attrs.js"></script><div class="row">
+      </header><script src="dictionaryVersioning_files/header-attrs-2.6/header-attrs.js"></script><div class="row">
   <div class="col-md-9 contents">
     <div class="page-header toc-ignore">
-      <h1 data-toc-skip>Data versioning</h1>
+      <h1 data-toc-skip>Dictionairy versioning</h1>
+                        <h4 class="author">Sido Haakma</h4>
             
       
-      <small class="dont-index">Source: <a href="https://github.com/lifecycle-project/ds-upload/blob/master/vignettes/dataVersioning.Rmd"><code>vignettes/dataVersioning.Rmd</code></a></small>
-      <div class="hidden name"><code>dataVersioning.Rmd</code></div>
+      <small class="dont-index">Source: <a href="https://github.com/lifecycle-project/ds-upload/blob/master/vignettes/dictionaryVersioning.Rmd"><code>vignettes/dictionaryVersioning.Rmd</code></a></small>
+      <div class="hidden name"><code>dictionaryVersioning.Rmd</code></div>
 
     </div>
 
     
     
-<div id="data-versioning" class="section level2">
+<p>You can add new content and release the dictionaries for all consortia.</p>
+<div id="adding-new-variables" class="section level2">
 <h2 class="hasAnchor">
-<a href="#data-versioning" class="anchor"></a>Data versioning</h2>
-<p>We suggest to version the data that you upload. This is needed because of the reproducibility of the research that is going to be performed on the datasets. We are suggesting to do this based upon (<a href="https://semver.org">semantic versioning</a>). A better explanation on using semantic versioning in data can be found here: <a href="https://medium.com/data-architect/semantic-versioning-for-data-products-2b060962093">semantic versioning for data products</a>.</p>
-<div id="semantic-versioning" class="section level3">
+<a href="#adding-new-variables" class="anchor"></a>Adding new variables</h2>
+<p>When you need to add new variables you need to perform 2 steps: - Adding the new variables to the dictionaries - Reshaping your data to DataSHIELD backend format</p>
+<div id="adding-new-dictionaries-data-schemes" class="section level3">
 <h3 class="hasAnchor">
-<a href="#semantic-versioning" class="anchor"></a>Semantic versioning</h3>
-<p>The implementation of semantic versioning is as follows.</p>
+<a href="#adding-new-dictionaries-data-schemes" class="anchor"></a>Adding new dictionaries (data schemes)</h3>
+<p>When you add new dictionaries you need to place them in <code>/dictionaries/core/x_x</code> or <code>/dictionaries/outcome/x_x</code>.</p>
+<p>For WP1 and 3 these 3 tables are namespaces this way:</p>
+<ul>
+<li>2_0_core_non_rep.xslx</li>
+<li>2_0_core_yearly_rep.xslx</li>
+<li>2_0_core_monthly_rep.xslx</li>
+<li>2_0_core_trimester_rep.xslx</li>
+</ul>
+<p>For WP4, 5 and 6 these tables are created:</p>
+<ul>
+<li>1_0_outcome_non_rep.xslx</li>
+<li>1_0_outcome_yearly_rep.xslx</li>
+<li>1_0_outcome_monthly_rep.xslx</li>
+<li>1_0_outcome_weekly_rep.xslx</li>
+</ul>
+<p>You need to place them into <code>R/data/dictionaries/x_x</code> as well.</p>
+<p>Finally you need to amend the changelogs, check <a href="#changelog">amend changelogs</a></p>
+<p>Please use the pull-request flow. For more information check <a href="https://github.com/lifecycle-project/analysis-tutorials/blob/master/GIT-WORKFLOW.md">GIT workflow</a></p>
+</div>
+</div>
+<div id="versioning" class="section level2">
+<h2 class="hasAnchor">
+<a href="#versioning" class="anchor"></a>Versioning</h2>
+<p>We are using an implementation of semantic versioning (<a href="https://semver.org">semantic versioning</a>). A better explanation on using semantic versioning in data can be found here: <a href="https://medium.com/data-architect/semantic-versioning-for-data-products-2b060962093">semantic versioning for data products</a>.</p>
+<p>We now can distinguish 4 tables for the core variables and 4 tables for the outcome variables. They will be released in 2 sets. One for the core variables and one for the outcome variables.</p>
+<p><strong>Core variables</strong></p>
+<ul>
+<li>non repeated measures</li>
+<li>monthly repeated measures</li>
+<li>trimester measures</li>
+<li>yearly repeated measures</li>
+</ul>
+<p><strong>Outcome variables</strong></p>
+<ul>
+<li>non repeated measures</li>
+<li>weekly repeated measures</li>
+<li>monthly repeated measures</li>
+<li>yearly repeated measures</li>
+</ul>
+<p>The version-scheme is as follows:</p>
+<p><strong>dictionary-major _ dictionary-minor - dictionary-kind - tablename</strong></p>
+<p><em>Examples</em></p>
+<ul>
+<li>1_1_dict-kind_non_rep.xlsx</li>
+<li>1_1_dict-kind_weekly_rep.xlsx</li>
+<li>1_1_dict-kind_monthly_rep.xlsx</li>
+<li>1_1_dict-kind_trimester_rep.xlsx</li>
+<li>1_1_dict-kind_yearly_rep.xlsx</li>
+</ul>
+<div id="dictionary" class="section level3">
+<h3 class="hasAnchor">
+<a href="#dictionary" class="anchor"></a>Dictionary</h3>
+<p>We are using semantic versioning in the data dictionary in LifeCycle. The implementation we now use is:</p>
 <ul>
 <li>
 <strong>Major</strong>
 <ul>
-<li>Amending your dataset with new data</li>
+<li>Remove columns from the existing tables</li>
 </ul>
 </li>
 <li>
 <strong>Minor</strong>
 <ul>
-<li>Correcting errors in the data (e.g. categories which are encoded the wrong way)</li>
+<li>Add additional columns to the existing tables</li>
+<li>Renaming of columns within the exisiting tables (the original column remains in the set)</li>
+<li>Changing the columntype within the existing tables</li>
 </ul>
 </li>
 </ul>
 </div>
 </div>
-<div id="table-scheme" class="section level2">
+<div id="changelog" class="section level2">
 <h2 class="hasAnchor">
-<a href="#table-scheme" class="anchor"></a>Table scheme</h2>
-<p>The table scheme we use is composed of 2 components, the data version and the table name.</p>
-<ul>
-<li><strong>data-major _ data_minor - tablename</strong></li>
-</ul>
-<div id="examples-for-the-core-tables" class="section level5">
-<h5 class="hasAnchor">
-<a href="#examples-for-the-core-tables" class="anchor"></a>Examples for the ‘core’ tables</h5>
-<ul>
-<li>1_0-non_rep</li>
-<li>1_0-monthly_rep</li>
-<li>1_0-trimester_rep</li>
-<li>1_0-monthly_rep</li>
-</ul>
-</div>
-<div id="examples-for-the-outcome-tables" class="section level5">
-<h5 class="hasAnchor">
-<a href="#examples-for-the-outcome-tables" class="anchor"></a>Examples for the ‘outcome’ tables</h5>
-<ul>
-<li>1_0-non_rep</li>
-<li>1_0-weekly_rep</li>
-<li>1_0-monthly_rep</li>
-<li>1_0-yearly_rep</li>
-</ul>
-</div>
-<div id="other-approaches" class="section level3">
+<a href="#changelog" class="anchor"></a>Changelog</h2>
+<p>To keep track of all the changed within the different versions of the dictionaries and data releases we need to have changelogs. This way we can trace back what has happened in which release.</p>
+<div id="dictionary-releases" class="section level3">
 <h3 class="hasAnchor">
-<a href="#other-approaches" class="anchor"></a>Other approaches</h3>
-<p>Semantic versioning is just one of the strategies you can use. Date-based versioning is also a good way to deal with this examples can be:</p>
-<div id="examples-for-the-core-tables-1" class="section level5">
-<h5 class="hasAnchor">
-<a href="#examples-for-the-core-tables-1" class="anchor"></a>Examples for the ‘core’ tables</h5>
-<p><em>Full datetime</em></p>
+<a href="#dictionary-releases" class="anchor"></a>Dictionary releases</h3>
 <ul>
-<li>2020-11-02 21:36
-<ul>
-<li>20201102_2136-non_rep</li>
-</ul>
+<li>Check: <a href="./changelogs/CORE_DICTIONARY_CHANGELOG.html">core dictionary changelog</a>
 </li>
-</ul>
-<p><em>Date only</em></p>
-<ul>
-<li>2020-11-02
-<ul>
-<li>202011_02-monthly_rep</li>
-</ul>
-</li>
-</ul>
-<p><em>Date month</em> - if you have less iterations</p>
-<ul>
-<li>2020-11
-<ul>
-<li>2020-11-trimester_rep</li>
-</ul>
+<li>Check: <a href="./changelogs/OUTCOME_DICTIONARY_CHANGELOG.html">outcome dictionary changelog</a>
 </li>
 </ul>
 </div>
-</div>
-</div>
-<div id="changelogs" class="section level2">
-<h2 class="hasAnchor">
-<a href="#changelogs" class="anchor"></a>Changelogs</h2>
-<p>To keep track of all the changed within the different versions of the data you uploaded you can keep track of a changelog.</p>
-<p>To view an example, please check out the <a href="https://github.com/lifecycle-project/ds-dictionaries/tree/master/changelogs">changelogs</a> of the dictionaries. You can use the same format, but for the data. When you archived the project it becomes less relevant.</p>
 </div>
   </div>
 
